@@ -1,5 +1,6 @@
 # ignore data sets
-Data
+Data/HouseNumbers
+Data/MNIST
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
