@@ -20,7 +20,7 @@ noecho = np.convolve(signal ,delta)
 print("noecho signal:", noecho.shape)
 assert(np.abs(noecho[:len(signal)] - signal).sum() < 0.000001)
 noecho = noecho.astype(np.int16)
-write('noecho.wav', 16000, noecho)
+write('Convolutions/noecho.wav', 16000, noecho)
 
 filt = np.zeros(16000)
 filt[0] = 1
@@ -30,7 +30,7 @@ filt[15999] = 0.1
 
 out = np.convolve(signal, filt)
 out = out.astype(np.int16) # make sure you do this, otherwise, you will get VERY LOUD NOISE
-write('out.wav', 16000, out)
+write('Convolutions/out.wav', 16000, out)
 
 plt.plot(out)
 plt.show()
