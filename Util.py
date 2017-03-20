@@ -50,4 +50,7 @@ def y2indicator(y):
 def error_rate(p, t):
 	return np.mean(p != t)
 
+def relu(a):
+	return a * (a > 0)
+
 

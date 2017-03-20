@@ -53,7 +53,7 @@ def convolve2d(X, W):
 #     return ret
 
 # load the famous Lena image
-img = mpimg.imread('lena.png')
+img = mpimg.imread('../Data/lena.png')
 
 # what does it look like?
 plt.imshow(img)
