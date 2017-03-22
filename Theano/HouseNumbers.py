@@ -13,23 +13,22 @@ from sklearn.utils import shuffle
 from datetime import datetime
 
 
-
 def convpool(X, W, b, poolsize=(2, 2)):
-    conv_out = conv2d(input=X, filters=W)
+	conv_out = conv2d(input=X, filters=W)
 
-    # downsample each feature map individually, using maxpooling
-    pooled_out = downsample.max_pool_2d(
-        input=conv_out,
-        ds=poolsize,
-        ignore_border=True
-    )
+	# downsample each feature map individually, using maxpooling
+	pooled_out = downsample.max_pool_2d(
+		input=conv_out,
+		ds=poolsize,
+		ignore_border=True
+	)
 
-    # add the bias term. Since the bias is a vector (1D array), we first
-    # reshape it to a tensor of shape (1, n_filters, 1, 1). Each bias will
-    # thus be broadcasted across mini-batches and feature map
-    # width & height
-    # return T.tanh(pooled_out + b.dimshuffle('x', 0, 'x', 'x'))
-    return relu(pooled_out + b.dimshuffle('x', 0, 'x', 'x'))
+	# add the bias term. Since the bias is a vector (1D array), we first
+	# reshape it to a tensor of shape (1, n_filters, 1, 1). Each bias will
+	# thus be broadcasted across mini-batches and feature map
+	# width & height
+	# return T.tanh(pooled_out + b.dimshuffle('x', 0, 'x', 'x'))
+	return relu(pooled_out + b.dimshuffle('x', 0, 'x', 'x'))
 
 
 def init_filter(shape, poolsz):

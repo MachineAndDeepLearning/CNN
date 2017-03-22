@@ -1,6 +1,7 @@
 # ignore data sets
 Data/HouseNumbers
 Data/MNIST
+Data/fer2013
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
